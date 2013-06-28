@@ -1,0 +1,31 @@
+This package was debianized by Michael Davidsaver <mdavidsaver@bnl.gov> on
+Tue, 21 Jul 2009 17:16:54 -0400.
+
+It was downloaded from http://www.slac.stanford.edu/~strauman/rtems/software.html
+
+Upstream Author:
+
+    Till Straumann <strauman@slac.stanford.edu>
+
+Copyright:
+
+   Copyright (C) 2003, Stanford University and
+   Till Straumann <strauman@slac.stanford.edu>
+
+License:
+
+    Note that the files in this directory (rtems-telnetd) are
+    released under differing licenses. Consult the individual
+    files for details:
+        pty.c, telnetd.c: RTEMS license (GPL 2 with exception)
+        des.c:            freebsd
+        others:           SLAC disclaimer of copyright
+        T.S, 2007
+
+
+On Debian systems, the complete text of the BSD License can be
+found in `/usr/share/common-licenses/BSD'.
+
+
+The Debian packaging is (C) 2009, Michael Davidsaver <mdavidsaver@bnl.gov> and
+is licensed under the GPL, see `/usr/share/common-licenses/GPL'.

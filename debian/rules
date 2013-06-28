@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/utils.mk
+
+# Don't strip
+DEB_DH_STRIP_ARGS := -Xusr
+
+RV=4.9
+
+# $1 is bsp name (ie mvme3100)
+define bsprule
+
+# This install prefix w/ arch
+# This will be /usr/powerpc-rtems4.9/mvme3100 or similar
+$1_bspbase=$(dir $(wildcard /usr/*-rtems$(RV)/$1/Makefile.inc))
+
+build/rtems-telnetd-$(1):: build-$(1)-stamp
+
+build-$(1)-stamp:
+
+	$(MAKE) ARCH=x-$(1) RTEMS_MAKEFILE_PATH=$$($1_bspbase)
+
+	touch $$@
+
+install/rtems-telnetd-$(1)::
+	install -d $(CURDIR)/debian/tmp$$($1_bspbase)/bin
+	$(MAKE) ARCH=x-$(1) RTEMS_MAKEFILE_PATH=$$($1_bspbase) \
+RTEMS_SITE_INSTALLDIR=$(CURDIR)/debian/tmp$$($1_bspbase) \
+install
+
+endef
+
+$(foreach p,$(DEB_INDEP_PACKAGES),$(eval $(call bsprule,$(p:rtems-telnetd-%=%))))
+
+common-binary-fixup-indep::
+	dh_rtems
+
+clean::
+	rm -f build-*
+	rm -rf x-*

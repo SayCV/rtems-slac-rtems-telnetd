@@ -70,7 +70,7 @@ CLOBBER_ADDITIONS +=
 all:	${ARCH} $(SRCS) $(PGMS)
 
 $(filter %.obj, $(PGMS)): ${OBJS}
-	$(make-obj)
+	$(LD) -o $@ -r $(OBJS)
 
 ifndef RTEMS_SITE_INSTALLDIR
 RTEMS_SITE_INSTALLDIR = $(PROJECT_RELEASE)

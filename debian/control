@@ -1,0 +1,54 @@
+Source: rtems-telnetd
+Section: devel
+Priority: extra
+Maintainer: Michael Davidsaver <mdavidsaver@bnl.gov>
+Build-Depends: debhelper (>= 7), rtems-debhelper (>= 5), cdbs,
+               rtems-cexp-mvme2100,
+               rtems-cexp-mvme2307,
+               rtems-cexp-mvme3100,
+               rtems-cexp-mvme5500,
+               rtems-cexp-pc386
+Rtems-Depends: rtems, rtems-cexp
+Standards-Version: 3.8.0
+Homepage: http://www.slac.stanford.edu/~strauman/rtems/software.html
+
+Package: rtems-telnetd-mvme2100
+Architecture: all
+Depends: ${rtems:Depends}
+Description: Telnet server for RTEMS
+ A telnet service for RTEMS
+ .
+ This package contains the generic image for the MVME2100 SBC.
+
+Package: rtems-telnetd-mvme2307
+Architecture: all
+Depends: ${rtems:Depends}
+Description: Telnet server for RTEMS
+ A telnet service for RTEMS
+ .
+ This package contains the generic image for the MVME2307 SBC.
+
+Package: rtems-telnetd-mvme3100
+Architecture: all
+Depends: ${rtems:Depends}
+Description: Telnet server for RTEMS
+ A telnet service for RTEMS
+ .
+ This package contains the generic image for the MVME3100 SBC.
+
+Package: rtems-telnetd-mvme5500
+Architecture: all
+Depends: ${rtems:Depends}
+Description: Telnet server for RTEMS
+ A telnet service for RTEMS
+ .
+ This package contains the generic image for the MVME5500 SBC.
+
+Package: rtems-telnetd-pc386
+Architecture: all
+Depends: ${rtems:Depends}
+Description: Telnet server for RTEMS
+ A telnet service for RTEMS
+ .
+ This package contains the generic image for 386 compatible CPU with standard
+ PC hardware.
